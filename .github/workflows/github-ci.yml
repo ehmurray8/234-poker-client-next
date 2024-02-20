@@ -1,0 +1,36 @@
+name: ci
+
+on:
+    # Trigger the workflow on push or pull request,
+    # but only for the main branch
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+
+            - name: Install
+              id: install
+              run: npm install
+
+            - name: Lint
+              id: lint
+              run: npm run lint
+
+            - name: Build
+              id: build
+              run: npm run build
