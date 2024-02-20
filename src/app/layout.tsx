@@ -19,22 +19,24 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="charset" content="utf-8" />
+                <meta
+                    name='viewport'
+                    content='width=device-width, initial-scale=1'
+                />
+                <meta name='charset' content='utf-8' />
             </head>
             <body
                 className={cn(
-                    "min-h-screen bg-background font-sans antialiased",
+                    'bg-background min-h-screen font-sans antialiased',
                     fontSans.variable
                 )}
             >
                 <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
+                    attribute='class'
+                    defaultTheme='system'
                     enableSystem
                     disableTransitionOnChange
                 >
-
                     {children}
                 </ThemeProvider>
             </body>
