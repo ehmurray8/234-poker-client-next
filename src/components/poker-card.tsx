@@ -30,7 +30,7 @@ export default function PokerCard({
             width={60}
             height={80}
             alt={cardImage.alt}
-            className={`relative h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] xl:h-[100px] xl:w-[75px] ${className}`}
+            className={`h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] xl:h-[100px] xl:w-[75px] ${className}`}
         />
     );
 }

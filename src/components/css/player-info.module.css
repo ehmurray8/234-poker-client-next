@@ -1,0 +1,14 @@
+svg.animation circle {
+    animation: countdown var(--animation-length) linear;
+    transform: rotateZ(-90deg) rotateX(180deg);
+    transform-origin: center 32px;
+}
+
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0px;
+    }
+    to {
+        stroke-dashoffset: 150px;
+    }
+}
