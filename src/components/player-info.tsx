@@ -87,7 +87,7 @@ export default function PlayerInfo({
 
     return (
         <div
-            className={`${className} flex h-8 flex-row items-center rounded-lg bg-slate-500 pl-4 text-xs shadow-black dark:bg-slate-600 sm:h-12 sm:text-sm xl:h-16 xl:text-base`}
+            className={`${className} flex h-8 flex-row items-center rounded-lg bg-slate-500 pl-4 text-xs shadow-black dark:bg-slate-600 dark:text-slate-200 sm:h-12 sm:text-sm xl:h-16 xl:text-base`}
         >
             <Avatar className='w-10 py-4'>
                 <AvatarImage

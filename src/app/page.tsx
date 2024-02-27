@@ -61,7 +61,10 @@ export default function Home() {
           };
 
     // QOL
-    // Fix sizing issues
+    // TODO: Fix sizing issues
+
+    // Day2
+    // TODO: Raise winning cards
 
     const dealerPositionBySeat = [
         'absolute bottom-[30%] left-[14%]',

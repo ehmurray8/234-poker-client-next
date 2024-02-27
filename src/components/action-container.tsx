@@ -3,8 +3,8 @@ import ActionButton from './action-button';
 
 export type BettingState = {
     amountToCall: number;
-    minRaiseAmount: number;
-    maxRaiseAmount: number;
+    minRaiseAmount?: number;
+    maxRaiseAmount?: number;
     stepSize: number;
 };
 
@@ -15,24 +15,39 @@ export default function ActionContainer({
     isSelectingGame?: boolean;
     bettingState?: BettingState | undefined;
 }) {
-    let actions: React.ReactNode;
+    let actions: React.JSX.Element;
     if (bettingState) {
-        actions = (
-            <>
-                <ActionButton variant='destructive' actionName='Fold' />
-                <ActionButton variant='neutral' actionName='Check' />
-                <ActionButton
-                    variant='neutral'
-                    actionName='Call'
-                    amount={bettingState.amountToCall}
-                />
-                <RaiseActionButton
-                    minAmount={bettingState.minRaiseAmount}
-                    maxAmount={bettingState.maxRaiseAmount}
-                    step={bettingState.stepSize}
-                />
-            </>
-        );
+        if (bettingState.amountToCall) {
+            actions = (
+                <>
+                    <ActionButton variant='destructive' actionName='Fold' />
+                    <ActionButton
+                        variant='neutral'
+                        actionName='Call'
+                        amount={bettingState.amountToCall}
+                    />
+                </>
+            );
+        } else {
+            actions = (
+                <>
+                    <ActionButton variant='neutral' actionName='Check' />
+                </>
+            );
+        }
+
+        if (bettingState.minRaiseAmount && bettingState.maxRaiseAmount) {
+            actions = (
+                <>
+                    {actions}
+                    <RaiseActionButton
+                        minAmount={bettingState.minRaiseAmount}
+                        maxAmount={bettingState.maxRaiseAmount}
+                        step={bettingState.stepSize}
+                    />
+                </>
+            );
+        }
     } else if (isSelectingGame) {
         actions = (
             <>
@@ -45,7 +60,7 @@ export default function ActionContainer({
         actions = <></>;
     }
     return (
-        <div className='absolute bottom-6 left-0 flex w-full flex-row justify-center gap-10'>
+        <div className='absolute bottom-6 left-0 flex w-full flex-row justify-center gap-5 md:gap-10'>
             {actions}
         </div>
     );
