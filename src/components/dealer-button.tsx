@@ -1,16 +1,12 @@
 export default function DealerButton({
     className,
-    size,
 }: {
     className: string;
-    size: number;
 }) {
     return (
-        <div className={className}>
+        <div className={`${className} md:h-7 h-5 md:w-7 w-5`}>
             <svg
                 viewBox='0 0 100 100'
-                height={size}
-                width={size}
                 xmlns='http://www.w3.org/2000/svg'
             >
                 <circle cx='50' cy='50' r='50' fill='white' />

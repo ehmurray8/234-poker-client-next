@@ -2,6 +2,7 @@ svg.animation circle {
     animation: countdown var(--animation-length) linear;
     transform: rotateZ(-90deg) rotateX(180deg);
     transform-origin: center 32px;
+    scale: 0.83;
 }
 
 @keyframes countdown {
@@ -9,6 +10,22 @@ svg.animation circle {
         stroke-dashoffset: 0px;
     }
     to {
-        stroke-dashoffset: 150px;
+        stroke-dashoffset: 120px; /* 2pi * r */
+    }
+}
+
+@media (min-width: 1280px) {
+
+    svg.animation circle {
+        scale: 1;
+    }
+
+    @keyframes countdown {
+        from {
+            stroke-dashoffset: 0px;
+        }
+        to {
+            stroke-dashoffset: 150px; /* 2pi * r */
+        }
     }
 }

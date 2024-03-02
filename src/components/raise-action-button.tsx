@@ -32,7 +32,7 @@ export default function RaiseActionButton({
                 max={maxAmount}
                 step={step}
                 onValueChange={sliderValueChange}
-                className={cn('ml-4 w-64')}
+                className={cn('ml-4 md:w-64 sm:w-56 w-48')}
             />
         </div>
     );

@@ -23,7 +23,7 @@ function Spinner({
         return (
             <svg
                 style={animationStyle as any}
-                className={`absolute xl:top-0 -top-2 ${styles.animation} xl:-left-[7.15rem] -left-[7.4rem]`}
+                className={`absolute top-0 ${styles.animation} -left-[7.15rem]`}
                 fill='none'
                 strokeWidth={6}
             >
@@ -54,7 +54,7 @@ function Spinner({
     }
 }
 
-export default function PlayerInfo({
+export default function SmallCurrentPlayer({
     className,
     playerName,
     stackSize,
@@ -87,9 +87,9 @@ export default function PlayerInfo({
 
     return (
         <div
-            className={`${className} absolute rounded-lg bg-slate-500 pl-4 shadow-black dark:bg-slate-600 dark:text-slate-200 xl:h-16 h-12 2xl:text-base xl:text-xs text-xs`}
+            className={`${className} absolute rounded-lg bg-slate-500 pl-4 shadow-black dark:bg-slate-600 dark:text-slate-200 h-16 text-base`}
         >
-            <Avatar className='xl:w-10 xl:h-10 w-8 h-8 xl:top-3 top-2 absolute'>
+            <Avatar className='w-10 h-10 top-3 absolute'>
                 <AvatarImage
                     src='/images/default-user.png'
                     height={40}
@@ -102,7 +102,7 @@ export default function PlayerInfo({
                 isActing={isActing}
             />
 
-            <div className='relative mx-6 py-1 top-1 left-8'>
+            <div className='relative mx-6 py-1 top-1 left-10'>
                 <p>{playerName}</p>
                 <p>${stackSize}</p>
             </div>
@@ -111,7 +111,7 @@ export default function PlayerInfo({
                     key={getCardKey(card, i)}
                     card={card}
                     className={cardClassesByIndex[i]}
-                    // sizeClassName={isCurrentPlayer ? 'md:h-[100px] md:w-[75px] h-20 w-[60px]' : ''}
+                    sizeClassName={'md:h-[100px] md:w-[75px] h-20 w-[60px]'}
                 />
             ))}
         </div>

@@ -10,9 +10,11 @@ interface Card {
 export default function PokerCard({
     className = '',
     card,
+    sizeClassName,
 }: {
     className?: string;
     card?: Card;
+    sizeClassName?: string;
 }) {
     const cardImage = card
         ? {
@@ -24,13 +26,14 @@ export default function PokerCard({
               alt: 'Image showing back of card',
           };
 
+    const sizeClassNameValue = sizeClassName ? sizeClassName : 'h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] lg:h-[80px] lg:w-[60px] xl:h-[100px] lg:w-[75px]';
     return (
         <Image
             src={cardImage.path}
             width={60}
             height={80}
             alt={cardImage.alt}
-            className={`h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] xl:h-[100px] xl:w-[75px] ${className}`}
+            className={`${sizeClassNameValue} ${className}`}
         />
     );
 }
