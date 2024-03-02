@@ -62,6 +62,7 @@ export default function Home() {
 
     // QOL
     // TODO: Fix sizing issues
+    // TODO: 741px and lower has issues with player-info
 
     // Day2
     // TODO: Raise winning cards
@@ -81,70 +82,76 @@ export default function Home() {
             <div className='absolute left-1/2 top-24 -translate-x-1/2 rounded-[50%] bg-emerald-600 dark:bg-cyan-600 md:w-[80%] w-3/4 aspect-[5/2]'>
 
                 <PlayerInfo
-                    className='flex absolute bottom-[10%] xl:w-[28%] md:w-[39%] w-[33%] max-w-xs'
-                    playerName='Player 1'
+                    className='flex xl:bottom-[10%] bottom-0 xl:left-0 -left-14'
+                    playerName='XXX-XXX-XXX0'
                     stackSize={1000}
+                    numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex top-1/5 absolute xl:w-[28%] md:w-[39%] w-[33%] max-w-xs'
-                    playerName='Player 2'
+                    className='flex xl:top-0 top-0 xl:left-0 -left-14'
+                    playerName='XXX-XXX-XXX1'
                     stackSize={1000}
+                    numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex absolute -top-[10%] left-1/2 -translate-x-1/2 xl:w-[28%] md:w-[39%] w-[33%] max-w-xs'
-                    playerName='Player 3'
+                    className='flex xl:-top-[10%] md:-top-[15%] -top-[25%] left-1/2 -translate-x-1/2'
+                    playerName='XXX-XXX-XXX2'
                     stackSize={1000}
+                    numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex absolute top-1/5 right-0 xl:w-[28%] md:w-[39%] w-[33%] max-w-xs'
-                    playerName='Player 4'
+                    className='flex xl:top-0 top-0 xl:right-0 -right-14'
+                    playerName='XXX-XXX-XXX3'
                     stackSize={1000}
+                    numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex absolute bottom-[10%] right-0 xl:w-[28%] md:w-[39%] w-[33%] max-w-xs'
-                    playerName='Player 5'
+                    className='flex xl:bottom-[10%] bottom-0 xl:right-0 -right-14'
+                    playerName='XXX-XXX-XXX4'
                     stackSize={1000}
+                    numCards={playerCards.length}
                 />
 
                 <PlayerInfo
-                    className='md:flex hidden absolute -bottom-10 left-1/2 -translate-x-1/2 xl:w-[28%] md:w-[39%] w-[33%] max-w-xs'
-                    playerName='XXX-XXX-XXX0'
+                    className='md:flex hidden xl:-bottom-10 -bottom-14 left-1/2 -translate-x-1/2'
+                    playerName='XXX-XXX-XXX5'
                     stackSize={1000}
                     cards={playerCards}
                     isActing={true}
                     timeLeftInSeconds={30}
+                    numCards={playerCards.length}
                 />
 
 
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute md:bottom-[15%] md:left-[22%] bottom-[12%] left-[18%] md:text-lg sm:text-base text-sm'
+                    className='absolute xl:bottom-[26%] xl:left-[26%] md:bottom-[20%] bottom-[25%] left-[18%] xl:text-lg sm:text-base text-sm'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute md:left-[22%] md:top-[23%] left-[18%] top-[20%] md:text-lg sm:text-base text-sm'
+                    className='absolute xl:left-[26%] xl:top-[26%] md:top-[28%] left-[18%] top-[30%] xl:text-lg sm:text-base text-sm'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute left-1/2 md:top-[12%] top-[6%] md:text-lg sm:text-base text-sm'
+                    className='absolute left-1/2 xl:top-[14%] top-[6%] xl:text-lg sm:text-base text-sm'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute md:right-[22%] md:top-[23%] right-[18%] top-[20%] md:text-lg sm:text-base text-sm'
+                    className='absolute xl:right-[26%] xl:top-[26%] md:top-[28%] right-[18%] top-[30%] xl:text-lg sm:text-base text-sm'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute md:bottom-[15%] md:right-[22%] bottom-[12%] right-[18%] md:text-lg sm:text-base text-sm'
+                    className='absolute xl:bottom-[26%] xl:right-[26%] md:bottom-[20%] bottom-[25%] right-[18%] xl:text-lg sm:text-base text-sm'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute md:bottom-[12%] bottom-0 left-1/2 md:text-lg sm:text-base text-sm'
+                    className='absolute xl:bottom-[14%] bottom-0 left-1/2 xl:text-lg sm:text-base text-sm'
                 />
 
                 <DealerButton
@@ -176,7 +183,7 @@ export default function Home() {
                     className='absolute block md:hidden left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 mb-1 md:text-lg sm:text-base text-sm'
                 />
             </div>
-            <div className='absolute bottom-1/2 w-full md:hidden flex flex-row gap-3 justify-center'>
+            <div className='absolute sm:bottom-[40%] bottom-1/2 w-full md:hidden flex flex-row gap-3 justify-center'>
                 {communityCards.map((card) => (
                     <PokerCard
                         key={`${card.rank}-${card.suit}-community-card`}
@@ -187,8 +194,8 @@ export default function Home() {
                 ))}
             </div>
             <SmallCurrentPlayer
-                className='flex md:hidden absolute bottom-[35%] left-[50%] -translate-x-1/2 w-[80%]'
-                playerName='XXX-XXX-XXX0'
+                className='flex md:hidden absolute sm:bottom-[25%] bottom-[35%] left-[50%] -translate-x-1/2 w-[80%]'
+                playerName='XXX-XXX-XXX5'
                 stackSize={1000}
                 cards={playerCards}
                 isActing={true}

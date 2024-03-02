@@ -61,6 +61,7 @@ export default function PlayerInfo({
     cards,
     isActing = false,
     timeLeftInSeconds = undefined,
+    numCards,
 }: {
     className: string;
     playerName: string;
@@ -68,8 +69,9 @@ export default function PlayerInfo({
     cards?: Card[];
     isActing?: boolean;
     timeLeftInSeconds?: number;
+    numCards: number;
 }) {
-    const playerCards = cards ? cards : [undefined, undefined];
+    const playerCards = cards ? cards : Array.apply(null, Array(numCards)).map(_ => undefined);
     function getCardKey(card: Card | undefined, index: number): string {
         if (card) {
             return `${card.rank}-${card.suit}-card`;
@@ -79,15 +81,15 @@ export default function PlayerInfo({
     }
 
     const cardClassesByIndex = [
-        'absolute -top-2 right-[13%]',
-        'absolute -top-2 right-[9%] z-10',
-        'absolute -top-2 right-[5%] z-20',
-        'absolute -top-2 right-[1%] z-30',
+        'absolute sm:-top-2 top-0.5 sm:right-[13%] right-[9%] right-[13%]',
+        'absolute sm:-top-2 top-0.5 sm:right-[9%] right-[5%] z-10',
+        'absolute sm:-top-2 top-0.5 sm:right-[5%] right-[1%] z-20',
+        'absolute sm:-top-2 top-0.5 sm:right-[1%] -right-[3%] z-30',
     ];
 
     return (
         <div
-            className={`${className} absolute rounded-lg bg-slate-500 pl-4 shadow-black dark:bg-slate-600 dark:text-slate-200 xl:h-16 h-12 2xl:text-base xl:text-xs text-xs`}
+            className={`${className} lg:w-[28%] md:w-[39%] w-[39%] max-w-xs absolute rounded-lg bg-slate-500 pl-4 shadow-black dark:bg-slate-600 dark:text-slate-200 xl:h-16 h-12 2xl:text-base xl:text-xs text-xs`}
         >
             <Avatar className='xl:w-10 xl:h-10 w-8 h-8 xl:top-3 top-2 absolute'>
                 <AvatarImage
@@ -102,7 +104,7 @@ export default function PlayerInfo({
                 isActing={isActing}
             />
 
-            <div className='relative mx-6 py-1 top-1 left-8'>
+            <div className='relative mx-6 py-1 top-1 md:left-8 left-4'>
                 <p>{playerName}</p>
                 <p>${stackSize}</p>
             </div>
@@ -111,7 +113,6 @@ export default function PlayerInfo({
                     key={getCardKey(card, i)}
                     card={card}
                     className={cardClassesByIndex[i]}
-                    // sizeClassName={isCurrentPlayer ? 'md:h-[100px] md:w-[75px] h-20 w-[60px]' : ''}
                 />
             ))}
         </div>
