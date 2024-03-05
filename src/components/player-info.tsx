@@ -23,7 +23,7 @@ function Spinner({
         return (
             <svg
                 style={animationStyle as any}
-                className={`absolute xl:top-0 -top-2 ${styles.animation} xl:-left-[7.15rem] -left-[7.4rem]`}
+                className={`absolute -top-2 xl:top-0 ${styles.animation} -left-[7.4rem] xl:-left-[7.15rem]`}
                 fill='none'
                 strokeWidth={6}
             >
@@ -71,7 +71,9 @@ export default function PlayerInfo({
     timeLeftInSeconds?: number;
     numCards: number;
 }) {
-    const playerCards = cards ? cards : Array.apply(null, Array(numCards)).map(_ => undefined);
+    const playerCards = cards
+        ? cards
+        : Array.apply(null, Array(numCards)).map((_) => undefined);
     function getCardKey(card: Card | undefined, index: number): string {
         if (card) {
             return `${card.rank}-${card.suit}-card`;
@@ -89,9 +91,9 @@ export default function PlayerInfo({
 
     return (
         <div
-            className={`${className} lg:w-[28%] md:w-[39%] w-[39%] max-w-xs absolute rounded-lg bg-slate-500 pl-4 shadow-black dark:bg-slate-600 dark:text-slate-200 xl:h-16 h-12 2xl:text-base xl:text-xs text-xs`}
+            className={`${className} absolute hidden h-12 w-[39%] max-w-xs rounded-lg bg-slate-500 pl-4 text-xs shadow-black dark:bg-slate-600 dark:text-slate-200 md:flex md:w-[39%] lg:w-[28%] xl:h-16 xl:text-base`}
         >
-            <Avatar className='xl:w-10 xl:h-10 w-8 h-8 xl:top-3 top-2 absolute'>
+            <Avatar className='absolute top-2 h-8 w-8 xl:top-3 xl:h-10 xl:w-10'>
                 <AvatarImage
                     src='/images/default-user.png'
                     height={40}
@@ -104,7 +106,7 @@ export default function PlayerInfo({
                 isActing={isActing}
             />
 
-            <div className='relative mx-6 py-1 top-1 md:left-8 left-4'>
+            <div className='relative left-4 top-1 mx-6 py-1 md:left-8 lg:left-4 xl:left-8'>
                 <p>{playerName}</p>
                 <p>${stackSize}</p>
             </div>

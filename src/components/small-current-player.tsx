@@ -87,9 +87,9 @@ export default function SmallCurrentPlayer({
 
     return (
         <div
-            className={`${className} absolute rounded-lg bg-slate-500 pl-4 shadow-black dark:bg-slate-600 dark:text-slate-200 h-16 text-base`}
+            className={`${className} absolute h-16 rounded-lg bg-slate-500 pl-4 text-base shadow-black dark:bg-slate-600 dark:text-slate-200`}
         >
-            <Avatar className='w-10 h-10 top-3 absolute'>
+            <Avatar className='absolute top-3 h-10 w-10'>
                 <AvatarImage
                     src='/images/default-user.png'
                     height={40}
@@ -102,7 +102,7 @@ export default function SmallCurrentPlayer({
                 isActing={isActing}
             />
 
-            <div className='relative mx-6 py-1 top-1 left-10'>
+            <div className='relative left-10 top-1 mx-6 py-1'>
                 <p>{playerName}</p>
                 <p>${stackSize}</p>
             </div>

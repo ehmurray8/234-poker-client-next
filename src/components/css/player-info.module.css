@@ -15,7 +15,6 @@ svg.animation circle {
 }
 
 @media (min-width: 1280px) {
-
     svg.animation circle {
         scale: 1;
     }

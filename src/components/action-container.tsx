@@ -60,7 +60,7 @@ export default function ActionContainer({
         actions = <></>;
     }
     return (
-        <div className='absolute bottom-6 left-0 flex w-full flex-row justify-center gap-5 md:gap-10 flex-wrap'>
+        <div className='absolute bottom-6 left-0 flex w-full flex-row flex-wrap justify-center gap-5 md:gap-10'>
             {actions}
         </div>
     );

@@ -54,20 +54,22 @@ export default function Home() {
     const bettingState = isSelectingGame
         ? undefined
         : {
-            amountToCall: 100,
-            minRaiseAmount: 200,
-            maxRaiseAmount: 1000,
-            stepSize: 50,
-        };
+              amountToCall: 100,
+              minRaiseAmount: 200,
+              maxRaiseAmount: 1000,
+              stepSize: 50,
+          };
 
     // QOL
     // TODO: Fix sizing issues
-    // TODO: 741px and lower has issues with player-info
+    //  * 741px and lower has issues with player-info
+    //  * Dealer button is misplaced on small screens
+    //  * Horizontal is broken on mobile
 
     // Day2
     // TODO: Raise winning cards
 
-    const dealerSeatIndex = 5;
+    const dealerSeatIndex = 0;
 
     const dealerPositionBySeat = [
         'absolute md:bottom-[30%] md:left-[14%] bottom-[20%] left-[10%]',
@@ -79,41 +81,40 @@ export default function Home() {
     ];
     return (
         <main className='h-[100dvh] w-[100dvw]'>
-            <div className='absolute left-1/2 top-24 -translate-x-1/2 rounded-[50%] bg-emerald-600 dark:bg-cyan-600 md:w-[80%] w-3/4 aspect-[5/2]'>
-
+            <div className='absolute left-1/2 top-40 aspect-[5/2] w-3/4 -translate-x-1/2 rounded-[50%] bg-emerald-600 dark:bg-cyan-600 sm:top-28 md:w-[80%]'>
                 <PlayerInfo
-                    className='flex xl:bottom-[10%] bottom-0 xl:left-0 -left-14'
+                    className='-left-14 bottom-0 xl:bottom-[10%] xl:left-0'
                     playerName='XXX-XXX-XXX0'
                     stackSize={1000}
                     numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex xl:top-0 top-0 xl:left-0 -left-14'
+                    className='-left-14 top-0 xl:left-0 xl:top-0'
                     playerName='XXX-XXX-XXX1'
                     stackSize={1000}
                     numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex xl:-top-[10%] md:-top-[15%] -top-[25%] left-1/2 -translate-x-1/2'
+                    className='-top-[25%] left-1/2 -translate-x-1/2 md:-top-[15%] xl:-top-[10%]'
                     playerName='XXX-XXX-XXX2'
                     stackSize={1000}
                     numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex xl:top-0 top-0 xl:right-0 -right-14'
+                    className='-right-14 top-0 xl:right-0 xl:top-0'
                     playerName='XXX-XXX-XXX3'
                     stackSize={1000}
                     numCards={playerCards.length}
                 />
                 <PlayerInfo
-                    className='flex xl:bottom-[10%] bottom-0 xl:right-0 -right-14'
+                    className='-right-14 bottom-0 xl:bottom-[10%] xl:right-0'
                     playerName='XXX-XXX-XXX4'
                     stackSize={1000}
                     numCards={playerCards.length}
                 />
 
                 <PlayerInfo
-                    className='md:flex hidden xl:-bottom-10 -bottom-14 left-1/2 -translate-x-1/2'
+                    className='-bottom-14 left-1/2 -translate-x-1/2 xl:-bottom-10'
                     playerName='XXX-XXX-XXX5'
                     stackSize={1000}
                     cards={playerCards}
@@ -122,46 +123,45 @@ export default function Home() {
                     numCards={playerCards.length}
                 />
 
-
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute xl:bottom-[26%] xl:left-[26%] md:bottom-[20%] bottom-[25%] left-[18%] xl:text-lg sm:text-base text-sm'
+                    className='absolute bottom-[25%] left-[18%] text-sm sm:text-base md:bottom-[20%] xl:bottom-[26%] xl:left-[26%] xl:text-lg'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute xl:left-[26%] xl:top-[26%] md:top-[28%] left-[18%] top-[30%] xl:text-lg sm:text-base text-sm'
+                    className='absolute left-[18%] top-[30%] text-sm sm:text-base md:top-[28%] xl:left-[26%] xl:top-[26%] xl:text-lg'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute left-1/2 xl:top-[14%] top-[6%] xl:text-lg sm:text-base text-sm'
+                    className='absolute left-1/2 top-[6%] text-sm sm:text-base xl:top-[14%] xl:text-lg'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute xl:right-[26%] xl:top-[26%] md:top-[28%] right-[18%] top-[30%] xl:text-lg sm:text-base text-sm'
+                    className='absolute right-[18%] top-[30%] text-sm sm:text-base md:top-[28%] xl:right-[26%] xl:top-[26%] xl:text-lg'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute xl:bottom-[26%] xl:right-[26%] md:bottom-[20%] bottom-[25%] right-[18%] xl:text-lg sm:text-base text-sm'
+                    className='absolute bottom-[25%] right-[18%] text-sm sm:text-base md:bottom-[20%] xl:bottom-[26%] xl:right-[26%] xl:text-lg'
                 />
                 <Chips
                     amount={10}
                     size='sm'
-                    className='absolute xl:bottom-[14%] bottom-0 left-1/2 xl:text-lg sm:text-base text-sm'
+                    className='absolute bottom-0 left-1/2 text-sm sm:text-base xl:bottom-[14%] xl:text-lg'
                 />
 
                 <DealerButton
                     className={dealerPositionBySeat[dealerSeatIndex]}
                 />
 
-                <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 stroke-1 md:text-2xl sm:text-xl text-base'>
+                <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 stroke-1 text-base sm:text-xl md:text-2xl'>
                     234Poker
                 </div>
-                <div className='absolute md:block hidden left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-xl'>
+                <div className='absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 text-xl md:block'>
                     <Chips
                         amount={potAmount}
                         size='lg'
@@ -180,10 +180,10 @@ export default function Home() {
                 <Chips
                     amount={potAmount}
                     size='lg'
-                    className='absolute block md:hidden left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 mb-1 md:text-lg sm:text-base text-sm'
+                    className='absolute left-1/2 top-1/2 z-10 mb-1 block -translate-x-1/2 -translate-y-1/2 text-sm sm:text-base md:hidden md:text-lg'
                 />
             </div>
-            <div className='absolute sm:bottom-[40%] bottom-1/2 w-full md:hidden flex flex-row gap-3 justify-center'>
+            <div className='absolute bottom-[38%] flex w-full flex-row justify-center gap-3 md:hidden'>
                 {communityCards.map((card) => (
                     <PokerCard
                         key={`${card.rank}-${card.suit}-community-card`}
@@ -194,7 +194,7 @@ export default function Home() {
                 ))}
             </div>
             <SmallCurrentPlayer
-                className='flex md:hidden absolute sm:bottom-[25%] bottom-[35%] left-[50%] -translate-x-1/2 w-[80%]'
+                className='absolute bottom-[25%] left-[50%] flex w-[80%] -translate-x-1/2 md:hidden'
                 playerName='XXX-XXX-XXX5'
                 stackSize={1000}
                 cards={playerCards}

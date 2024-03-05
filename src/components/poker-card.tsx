@@ -26,7 +26,9 @@ export default function PokerCard({
               alt: 'Image showing back of card',
           };
 
-    const sizeClassNameValue = sizeClassName ? sizeClassName : 'h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] lg:h-[80px] lg:w-[60px] xl:h-[100px] lg:w-[75px]';
+    const sizeClassNameValue = sizeClassName
+        ? sizeClassName
+        : 'h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] lg:h-[80px] lg:w-[60px] xl:h-[100px] lg:w-[75px]';
     return (
         <Image
             src={cardImage.path}
