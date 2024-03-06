@@ -28,12 +28,12 @@ export default function PokerCard({
 
     const sizeClassNameValue = sizeClassName
         ? sizeClassName
-        : 'h-[45px] w-[33px] sm:h-[60px] sm:w-[45px] lg:h-[80px] lg:w-[60px] xl:h-[100px] lg:w-[75px]';
+        : 'w-[31px] sm:w-[41px] lg:w-[55px] xl:w-[69px] aspect-[0.69]';
     return (
         <Image
             src={cardImage.path}
-            width={60}
-            height={80}
+            width={69}
+            height={100}
             alt={cardImage.alt}
             className={`${sizeClassNameValue} ${className}`}
         />

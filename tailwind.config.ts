@@ -19,8 +19,7 @@ const config = {
         },
         extend: {
             screens: {
-                short: { raw: '(min-height: 500px)' },
-                portrait: { raw: '(aspect-ratio: 9/16)' },
+                smwh: { raw: '(min-height: 690px), (min-width: 640px)' },
             },
             keyframes: {
                 'accordion-down': {
