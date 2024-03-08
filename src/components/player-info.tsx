@@ -83,15 +83,15 @@ export default function PlayerInfo({
     }
 
     const cardClassesByIndex = [
-        'absolute sm:-top-2 top-0.5 sm:right-[13%] right-[9%] right-[13%]',
-        'absolute sm:-top-2 top-0.5 sm:right-[9%] right-[5%] z-10',
-        'absolute sm:-top-2 top-0.5 sm:right-[5%] right-[1%] z-20',
-        'absolute sm:-top-2 top-0.5 sm:right-[1%] -right-[3%] z-30',
+        'absolute sm:-top-2 -top-4 sm:right-[13%] right-[9%] -z-40',
+        'absolute sm:-top-2 -top-4 sm:right-[9%] right-[3%] -z-30',
+        'absolute sm:-top-2 -top-4 sm:right-[5%] -right-[1%] -z-20',
+        'absolute sm:-top-2 -top-4 sm:right-[1%] -right-[5%] -z-10',
     ];
 
     return (
         <div
-            className={`${className} absolute hidden h-12 w-[39%] max-w-xs rounded-lg bg-slate-500 pl-4 text-xs shadow-black dark:bg-slate-600 dark:text-slate-200 md:flex md:w-[39%] lg:w-[28%] xl:h-16 xl:text-base`}
+            className={`${className} absolute flex h-12 w-[39%] max-w-xs rounded-lg bg-slate-500 pl-4 text-xs shadow-black dark:bg-slate-600 dark:text-slate-200 md:w-[39%] lg:w-[28%] xl:h-16 xl:text-base`}
         >
             <Avatar className='absolute top-2 h-8 w-8 xl:top-3 xl:h-10 xl:w-10'>
                 <AvatarImage
@@ -115,6 +115,7 @@ export default function PlayerInfo({
                     key={getCardKey(card, i)}
                     card={card}
                     className={cardClassesByIndex[i]}
+                    sizeClassName='md:h-[80px] md:w-[60px] h-[64px] w-[48px]'
                 />
             ))}
         </div>
