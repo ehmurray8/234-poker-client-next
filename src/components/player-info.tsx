@@ -20,6 +20,7 @@ function Spinner({
         const animationStyle = {
             '--animation-length': `${timeLeftInSeconds}s`,
         };
+        // TODO: style and class are not supported on svg
         return (
             <svg
                 style={animationStyle as any}
